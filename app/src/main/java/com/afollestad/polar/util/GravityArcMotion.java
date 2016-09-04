@@ -16,8 +16,10 @@
 
 package com.afollestad.polar.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Path;
+import android.os.Build;
 import android.transition.ArcMotion;
 import android.util.AttributeSet;
 
@@ -30,6 +32,7 @@ import android.util.AttributeSet;
  * <p>
  * Taken from Plaid: https://github.com/nickbutcher/plaid/blob/master/app/src/main/java/io/plaidapp/ui/transitions/GravityArcMotion.java
  */
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class GravityArcMotion extends ArcMotion {
 
     private static final float DEFAULT_MIN_ANGLE_DEGREES = 0;

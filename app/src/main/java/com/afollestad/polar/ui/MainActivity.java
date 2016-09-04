@@ -43,15 +43,11 @@ import com.afollestad.polar.config.Config;
 import com.afollestad.polar.dialogs.ChangelogDialog;
 import com.afollestad.polar.dialogs.InvalidLicenseDialog;
 import com.afollestad.polar.fragments.AboutFragment;
-import com.afollestad.polar.fragments.ApplyFragment;
 import com.afollestad.polar.fragments.HomeFragment;
-import com.afollestad.polar.fragments.IconsFragment;
-import com.afollestad.polar.fragments.RequestsFragment;
 import com.afollestad.polar.fragments.WallpapersFragment;
 import com.afollestad.polar.fragments.ZooperFragment;
 import com.afollestad.polar.fragments.base.BasePageFragment;
 import com.afollestad.polar.ui.base.BaseDonateActivity;
-import com.afollestad.polar.util.DrawableXmlParser;
 import com.afollestad.polar.util.LicensingUtils;
 import com.afollestad.polar.util.PagesBuilder;
 import com.afollestad.polar.util.TintUtils;
@@ -481,7 +477,6 @@ public class MainActivity extends BaseDonateActivity implements
         if (isFinishing()) {
             Config.deinit();
             Bridge.destroy();
-            DrawableXmlParser.cleanup();
             LicensingUtils.cleanup();
             VC.destroy();
             Utils.wipe(getExternalCacheDir());
@@ -493,10 +488,6 @@ public class MainActivity extends BaseDonateActivity implements
         if (mPager != null) {
             FragmentManager fm = getFragmentManager();
             Fragment current = fm.findFragmentByTag("page:" + mPager.getCurrentItem());
-            if (current != null && current instanceof RequestsFragment &&
-                    ((RequestsFragment) current).onBackPressed()) {
-                return;
-            }
         }
         super.onBackPressed();
     }
@@ -516,6 +507,7 @@ public class MainActivity extends BaseDonateActivity implements
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onActivityReenter(int resultCode, Intent data) {
