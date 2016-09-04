@@ -29,8 +29,7 @@
 
     <string-array name="about_descriptions">
         <item formatted="false"><![CDATA[This is definitely a placeholder<br><i>This is where your contribution would go</i>]]></item>
-		<item
-			formatted="false"><![CDATA[Simply. Born2Code.<br/>I made the code changes to Polar\'s source to make it a fully featured dashboard for Zooper and Wallpapers.]]></item>
+		<item formatted="false"><![CDATA[Simply. Born2Code.<br/>I made the code changes to Polar\'s source to make it a fully featured dashboard for Zooper and Wallpapers.]]></item>
         <item formatted="false"><![CDATA[I like rock/metal, programming, &amp; cars<br/><i>I made the dashboard happen &amp; helped design it</i>]]></item>
         <item formatted="false"><![CDATA[I like rap, coffee, &amp; UI design<br/><i>I designed the dashboard</i>]]></item>
         <item formatted="false"><![CDATA[I like playing piano, doing puzzles, &amp; making apps<br/><i>I primarily helped with animations and UI</i>]]></item>
