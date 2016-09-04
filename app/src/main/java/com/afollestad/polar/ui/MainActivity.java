@@ -184,15 +184,11 @@ public class MainActivity extends BaseDonateActivity implements
     }
 
     private void setupPages() {
-        mPages = new PagesBuilder(7);
+        mPages = new PagesBuilder(4);
         if (Config.get().homepageEnabled())
             mPages.add(new PagesBuilder.Page(R.id.drawer_home, R.drawable.tab_home, R.string.home, new HomeFragment()));
-        mPages.add(new PagesBuilder.Page(R.id.drawer_icons, R.drawable.tab_icons, R.string.icons, new IconsFragment()));
         if (Config.get().wallpapersEnabled())
             mPages.add(new PagesBuilder.Page(R.id.drawer_wallpapers, R.drawable.tab_wallpapers, R.string.wallpapers, new WallpapersFragment()));
-        if (Config.get().iconRequestEnabled())
-            mPages.add(new PagesBuilder.Page(R.id.drawer_requestIcons, R.drawable.tab_requests, R.string.request_icons, new RequestsFragment()));
-        mPages.add(new PagesBuilder.Page(R.id.drawer_apply, R.drawable.tab_apply, R.string.apply, new ApplyFragment()));
         if (Config.get().zooperEnabled())
             mPages.add(new PagesBuilder.Page(R.id.drawer_zooper, R.drawable.tab_zooper, R.string.zooper, new ZooperFragment()));
         mPages.add(new PagesBuilder.Page(R.id.drawer_about, R.drawable.tab_about, R.string.about, new AboutFragment()));
