@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.afollestad.polar"
-		  xmlns:android="http://schemas.android.com/apk/res/android"
-		  xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.afollestad.polar">
 
 	<!-- NOTE: you do NOT need to change the value of "package" above. -->
 
@@ -42,17 +42,26 @@
 				android:value="@color/primary_1_light"/>
 		</service>
 
-		<activity
-			android:name=".ui.MainActivity"
-			android:exported="true"
-			android:label="@string/app_name">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
+        <!-- Replace AppTheme.SplashLight with AppTheme.SplashDark to use dark splash screen theme -->
+        <activity
+            android:name=".ui.SplashScreen"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.SplashLight"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-				<category android:name="android.intent.category.LAUNCHER"/>
-			</intent-filter>
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
 				<category android:name="android.intent.category.INFO"/>
 			</intent-filter>
@@ -70,20 +79,34 @@
 			android:label="@string/app_name_wallpaper"
 			android:theme="@style/AppTheme.Viewer"/>
 
+		<!-- TODO: Uncomment next 13 lines for Kustom. The <action />'s inside of <intent-filter> are optional, comment out what you don't need. -->
+        <!--
+        <provider
+            android:name="org.kustom.api.Provider"
+            android:authorities="${applicationId}.kustomprovider"
+            android:exported="true"
+            tools:ignore="ExportedContentProvider">
+            <intent-filter>
+                <action android:name="org.kustom.provider.WALLPAPERS" />
+                <action android:name="org.kustom.provider.WIDGETS" />
+                <action android:name="org.kustom.provider.KOMPONENTS" />
+            </intent-filter>
+        </provider>
+        -->
 
-		<provider
+        <provider
 			android:name=".zooper.TemplateProvider"
-			android:authorities="[myApplicationId].zwprovider"/>
+			android:authorities="${applicationId}.zwprovider"/>
 
-		<provider
-			android:name="android.support.v4.content.FileProvider"
-			android:authorities="[myApplicationId].iconFileProvider"
-			android:exported="false"
-			android:grantUriPermissions="true">
-			<meta-data
-				android:name="android.support.FILE_PROVIDER_PATHS"
-				android:resource="@xml/filepaths"/>
-		</provider>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
 
 	</application>
 
